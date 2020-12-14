@@ -1,0 +1,12 @@
+{% extends "blog/base.html" %}
+{% block blog_active %}active{% endblock %}
+{% block content %}
+<div class="col-sm-12 col-md-6 post-list">
+  {% for post in post_list %}
+    <div class="post">
+      <h1><a href="{% url 'post_detail' pk=post.pk %}">{{post.title}}</a></h1>
+        <a class="comments-list" href="{% url 'post_detail' pk=post.pk %}">Comments:{{ post.approve_comments.count }}</a>
+    </div>
+  {% endfor %}
+</div>
+{% endblock %}
